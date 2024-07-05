@@ -5,7 +5,7 @@ The objective of this project is to be able to push, remove, and view configurat
 The desired network topology is as follows:
 
 <p align="center">
-  <img src="images/Network_Topology.png" width="600" height="auto">
+  <img src="images/Network_Topology.png" width="800" height="auto">
 </p>
 
 For more visibility into the topology, you can view the desired configurations if they were to be applied via the command line on each device [here](https://github.com/xMoAlaa7/NetAuto/tree/main/desired_confs).
@@ -873,9 +873,9 @@ As an example, we'll be executing the following command to illustrate the output
 ansible-playbook RO_config_playbook.yml -k --tags all,save --diff
 ```
 <p align="center">
-  <img src="images/1.png" width="600" height="auto">
-  <img src="images/2.png" width="600" height="auto">
-  <img src="images/3.png" width="600" height="auto">
-  <img src="images/4.png" width="600" height="auto">
-  <img src="images/5.png" width="600" height="auto">
+  <img src="images/1.png" width="800" height="auto">
+  <img src="images/2.png" width="800" height="auto">
+  <img src="images/3.png" width="800" height="auto">
+  <img src="images/4.png" width="800" height="auto">
+  <img src="images/5.png" width="800" height="auto">
 </p>
