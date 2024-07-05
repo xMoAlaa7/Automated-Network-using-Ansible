@@ -1,0 +1,24 @@
+- name: Configure Trunk L2_Interfaces
+  cisco.ios.ios_l2_interfaces:
+    config:
+      - name: "{{ item.key }}"
+        mode: trunk
+        trunk:
+          allowed_vlans: "{{ item.value.allowed_vlans }}"
+          encapsulation: dot1q
+    state: "{{ item.value.state_typeA }}"
+  loop: "{{ l2_interfaces | dict2items }}"
+  when: item.value.mode == "trunk"
+  register: trunk_conf
+
+- name: Configure Access L2_Interfaces
+  cisco.ios.ios_l2_interfaces:
+    config:
+      - name: "{{ item.key }}"
+        mode: access
+        access:
+          vlan: "{{ item.value.vlan }}"
+    state: "{{ item.value.state_typeA }}"
+  loop: "{{ l2_interfaces | dict2items }}"
+  when: item.value.mode == "access"
+  register: access_conf

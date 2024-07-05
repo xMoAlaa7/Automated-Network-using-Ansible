@@ -1,0 +1,17 @@
+#If you're going to prepend any lines with no, uncomment vars and prepend_info
+- name: Enable L3_Interfaces
+  #vars:
+    #prepend_info: Some
+  cisco.ios.ios_config:
+    lines:
+      - no shutdown
+    parents: interface FastEthernet0/0
+
+- name: Configure L3_Interfaces
+  cisco.ios.ios_config:
+    lines:
+      - "encapsulation dot1Q {{ item.value.encapsulation}}"
+      - "ip address {{ item.value.ip_address}}"
+    parents: "interface {{ item.key }}"
+  loop: "{{ interfaces | dict2items }}"
+  register: l3_interfaces_conf

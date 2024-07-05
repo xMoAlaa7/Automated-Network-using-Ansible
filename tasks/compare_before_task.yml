@@ -1,0 +1,6 @@
+- name: Backup for Comparison (Before)
+  cisco.ios.ios_config:
+    backup: true
+    backup_options:
+      filename: "{{ inventory_hostname }}_cmp_before.cfg"
+      dir_path: backup/compare_confs
